@@ -1,20 +1,31 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from "react"
+import { StatusBar } from "expo-status-bar"
+import { Image, Text, View } from "react-native"
+
+import { Button } from "./components/Button"
+
+import { styles } from "./styles"
+
+const placeholderImg =
+  "https://media.istockphoto.com/id/1409329028/vector/no-picture-available-placeholder-thumbnail-icon-illustration-design.jpg?s=170667a&w=0&k=20&c=Q7gLG-xfScdlTlPGFohllqpNqpxsU1jy8feD_fob87U="
 
 export default function App() {
+  const [selectedImageUri, setSelectedImageUri] = useState("")
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+      <StatusBar style="light" backgroundColor="transparent" translucent />
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+      <Image
+        style={styles.image}
+        source={{
+          uri: selectedImageUri || placeholderImg,
+        }}
+      />
+
+      <View style={styles.results}></View>
+
+      <Button title="Selecionar image" />
+    </View>
+  )
+}

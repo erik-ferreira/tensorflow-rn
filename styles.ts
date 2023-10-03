@@ -18,5 +18,10 @@ export const styles = StyleSheet.create({
 
   results: {
     flex: 1,
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: 16,
+    justifyContent: "center",
+    marginTop: 64,
   },
 })
